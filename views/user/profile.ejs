@@ -1,0 +1,90 @@
+<%- include('../partials/header.ejs')%> <%- include('../nav_bar/nav_bar.ejs')%>
+<div class="profile-body">
+    <div class="profile-head">
+        <img id="profile-img" src="../<%= user.profilePicture%>" alt="profile img" />
+        <div>
+            <h2>Welcome, <%=user.firstName%></h2>
+            <p>Here is your awesome profile page</p>
+        </div>
+    </div>
+    <div>
+        <h1>Current Biddings</h1>
+        <div class="trades-items-profile-wrapper">
+            <%if(tradesBid.length) {%>
+            <h2>You currently have the highest bid on the following items</h2>
+            <ul class="offer-item-profile">
+                <%tradesBid.forEach(trade => {%> <%if(!user.equals(trade.trader)) {%>
+                <li>
+                    <img
+                        src="data:<%= trade.images[0].contentType%>;base64,<%= trade.images[0].imageBase64%>"
+                        class="item-img-profile"
+                        alt="ps5-sample" />
+                    <h3>
+                        <p>Item wanted</p>
+                        <a href="/trades/<%= trade.id%>"><%= trade.title%></a>
+                    </h3>
+                    <p>Status: <%= trade.status%></p>
+                    <p>Listed by: <%= trade.trader.firstName + ' ' + trade.trader.lastName%></p>
+                </li>
+
+                <%}})%>
+            </ul>
+            <%} else {%>
+            <h2>You have not bid on an item yet</h2>
+            <%}%>
+        </div>
+    </div>
+    <div>
+        <h1>Items Listed</h1>
+        <div class="trades-items-profile-wrapper">
+            <%if (tradesMade.length) {%>
+            <h2>You Have listed the following item</h2>
+            <ul class="trades-items-profile">
+                <%tradesMade.forEach(trade =>{%>
+                <li>
+                    <img
+                        src="data:<%= trade.images[0].contentType%>;base64,<%= trade.images[0].imageBase64%>"
+                        class="item-img-profile"
+                        alt="ps5-sample" />
+                    <h3><a href="/trades/<%= trade.id%>"><%= trade.title%></a></h3>
+                    <p>
+                        Expiration: <%= trade.expiration.toDateString()%>
+                        <br />
+                        Status: <%= trade.status%>
+                    </p>
+                </li>
+                <%})%>
+            </ul>
+            <%} else {%>
+            <h2>You have not listed any item</h2>
+            <%}%>
+        </div>
+    </div>
+    <div>
+        <h1>Watch List</h1>
+        <div class="trades-items-profile-wrapper">
+            <%if (user.watchlist.length) {%>
+            <h2>You currently These items on your watchlist</h2>
+            <ul class="trades-items-profile">
+                <%user.watchlist.forEach(trade =>{%>
+                <li>
+                    <img
+                        src="data:<%= trade.images[0].contentType%>;base64,<%= trade.images[0].imageBase64%>"
+                        class="item-img-profile"
+                        alt="ps5-sample" />
+                    <h3><a href="/trades/<%= trade.id%>"><%= trade.title%></a></h3>
+                    <p>
+                        Last Update: <%= trade.updatedAt.toDateString()%>
+                        <br />
+                        Satus: <%= trade.status%>
+                    </p>
+                </li>
+                <%})%>
+            </ul>
+            <%} else {%>
+            <h2>You do not have any item on your watchlist</h2>
+            <%}%>
+        </div>
+    </div>
+</div>
+<%- include('../partials/footer.ejs')%>

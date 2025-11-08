@@ -1,0 +1,56 @@
+<%- include('../partials/header.ejs')%> <%- include('../nav_bar/nav_bar.ejs')%>
+<div class="trades">
+    <div class="trades-header"><h1>Live Biddings</h1></div>
+    <div class="trades-items">
+        <%if (trades.length) {%>
+        <ul class="trades-items-individual">
+            <%trades.forEach(trade =>{%><%if (trade.status == 'available'){%>
+            <li>
+                <img
+                    src="data:<%= trade.images[0].contentType%>;base64,<%= trade.images[0].imageBase64%>"
+                    class="item-img"
+                    alt="ps5-sample" />
+                <h3><a href="/trades/<%= trade.id%>"><%= trade.title%></a></h3>
+                <p>
+                    Listed by: <%= trade.trader.firstName + ' ' + trade.trader.lastName%>
+                    <br />
+                    Status: <%= trade.status%>
+                    <br />
+                    Current Bid: $<%= trade.bestPrice%>
+                </p>
+            </li>
+            <% }})%>
+        </ul>
+        <%} else {%>
+        <p>There is no trade to display at the moment</p>
+        <%}%>
+    </div>
+</div>
+<div class="trades">
+    <div class="trades-header"><h1>Closed Biddings</h1></div>
+    <div class="trades-items">
+        <%if (trades.length) {%>
+        <ul class="trades-items-individual">
+            <%trades.forEach(trade =>{%> <%if (trade.status == 'Closed'){%>
+            <li>
+                <img
+                    src="data:<%= trade.images[0].contentType%>;base64,<%= trade.images[0].imageBase64%>"
+                    class="item-img"
+                    alt="ps5-sample" />
+                <h3><a href="/trades/<%= trade.id%>"><%= trade.title%></a></h3>
+                <p>
+                    Listed by: <%= trade.trader.firstName + ' ' + trade.trader.lastName%>
+                    <br />
+                    Status: <%= trade.status%>
+                    <br />
+                    Final Price: $<%= trade.bestPrice%>
+                </p>
+            </li>
+            <%}})%>
+        </ul>
+        <%}else {%>
+        <p>There are no biddings at the moment</p>
+        <%}%>
+    </div>
+</div>
+<%- include('../partials/footer.ejs')%>

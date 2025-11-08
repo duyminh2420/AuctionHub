@@ -1,0 +1,95 @@
+/*----- general format -----*/
+html {
+  width: 100%;
+  height: 100%;
+  background-color: #3F72AF;
+  font-family: Courier;
+}
+
+body {
+  margin: 0
+}
+
+header,
+footer {
+  color: #F9F7F7;
+  background-color: #112D4E;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.button-format {
+  display: inline-block;
+  text-align: center;
+  width: 40%;
+  text-decoration: none;
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  color: #F9F7F7;
+  background-color: #112D4E;
+}
+
+.button-format:hover {
+  background-color: #3F72AF;
+}
+
+#under-dev-img,
+#selfie,
+#contact-us-img {
+  width: 200px;
+  
+}
+
+.success {
+  background: rgba(108, 192, 112, 0.7);
+  color: #fff;
+  width: 100%;
+  text-align: center;
+  margin: 1%;
+  padding: 1%
+}
+
+.error {
+  background: rgba(255, 102, 51, 0.7);
+  color: #fff;
+  width: 100%;
+  text-align: center;
+  margin: 1%;
+  padding: 1%
+}
+
+main {
+  background-color: white;
+  padding: 0;
+  min-height: 400px;
+  display: flex;
+}
+
+.body-wrapper {
+  align-items: center;
+  padding: 30px;
+  align-self: stretch;
+  float: left;
+}
+
+.contact {
+  display: flex;
+  background-color: white;
+}
+
+#description-margin {
+  margin-left: 15px;
+}
+
+.reverse {
+  display: flex;
+  flex-direction: row-reverse;
+  background-color: whitesmoke;
+}
+
+.center {
+  text-align: center;
+  margin-top: 18px;
+}

@@ -1,0 +1,109 @@
+<%- include('../partials/header.ejs')%> <%- include('../nav_bar/nav_bar.ejs')%>
+<div class="product-images">
+    <div class="gallery">
+        <div class="gal-main-img">
+            <img
+                src="data:<%= trade.images[0].contentType%>;base64,<%= trade.images[0].imageBase64%>"
+                alt="broken images" />
+        </div>
+        <div class="gal-sub-img">
+            <%for (let i = 1; i < trade.images.length; i++) {%>
+            <img
+                src="data:<%= trade.images[i].contentType%>;base64,<%= trade.images[i].imageBase64%>"
+                alt="broken images" />
+            <%}%>
+        </div>
+    </div>
+</div>
+<div class="product-content">
+    <h1><%= trade.title%></h1>
+    <h3>Listed by: <%= trade.trader.firstName + ' ' + trade.trader.lastName%></h3>
+    <div class="contact-links">
+        <img src="../images/call-icon.png" alt="phone icon" />
+        <a href=""><%= trade.trader.contact.phone%></a>
+        <img src="../images/email-icon.png" alt="email icon" />
+        <a href=""><%= trade.trader.contact.email%></a>
+    </div>
+    <br />
+    <h4>Listed at:</h4>
+    <p><%= trade.createdAt%></p>
+    <h4>Status: <%= trade.status%></h4>
+    <br />
+    <h4>Description:</h4>
+    <p><%= trade.description %></p>
+    <div class="product-button-area">
+        <h4>Expiration</h4>
+        <p><%= trade.expiration.toDateString()%></p>
+        <p>
+            <%= time.day%> Days: <%= time.hour%> Hours: <%= time.minute%> Minutes: <%= time.second%>
+            Seconds
+        </p>
+    </div>
+    <div class="product-price-area">
+        <%if (trade.status == 'available') {%>
+
+        <h4>Listing Price: $<%= trade.initialPrice %></h4>
+        <%if(!trade.bestBidder._id.equals(trade.trader._id)) {%>
+        <h1>
+            $<%= trade.bestPrice %> Bid from <%= trade.bestBidder.firstName + ' ' +
+            trade.bestBidder.lastName %>
+        </h1>
+        <%} else {%>
+        <h1>Item has not been bid</h1>
+        <%}%> <%}%> <%if (trade.status == 'Closed') {%>
+        <%if(trade.bestBidder._id.equals(trade.trader._id)) {%>
+        <h1>The auction for this item has closed with no winner</h1>
+        <%} else {%>
+        <h1>The winner is: <%= trade.bestBidder.firstName + ' ' + trade.bestBidder.lastName%>!</h1>
+        <%}}%>
+    </div>
+    <%if(user) {%> <%if(user == trade.trader._id) {%>
+    <form class="product-button-area">
+        <%if(trade.status !== 'Closed') {%>
+        <button
+            class="button-format"
+            type="submit"
+            formmethod="GET"
+            formaction="/trades/<%= trade.id%>/edit">
+            Update Listing
+        </button>
+        <%}%>
+        <button
+            class="button-format"
+            type="submit"
+            formmethod="POST"
+            formaction="/trades/<%= trade.id%>?_method=DELETE">
+            Delete listing
+        </button>
+    </form>
+    <%} else {%>
+    <form class="product-button-area">
+        <%if(!userDetails.watchlist.includes(trade.id)) {%>
+        <button
+            class="button-format"
+            type="submit"
+            formmethod="POST"
+            formaction="/offers/watch/<%= trade.id%>?_method=PUT">
+            Add to watchlist
+        </button>
+        <%} else {%>
+        <button
+            class="button-format"
+            type="submit"
+            formmethod="POST"
+            formaction="/offers/updateWatch/<%= trade.id%>?_method=PUT">
+            Remove from watchlist
+        </button>
+        <%}%> <%if(trade.status !== 'Closed') {%>
+        <button
+            class="button-format"
+            type="submit"
+            formmethod="GET"
+            formaction="/offers/<%= trade.id%>/new">
+            Make your Bid
+        </button>
+        <%}%>
+    </form>
+    <%}%> <%}%>
+</div>
+<%- include('../partials/footer.ejs')%>

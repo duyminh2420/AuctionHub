@@ -1,0 +1,96 @@
+#logo {
+  padding-left: 10%;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin: 0;
+  height: 75px;
+  width: 75px;
+}
+
+#logo-link {
+  width: 10%;
+  padding: 0;
+  margin: 0;
+  size: 50%;
+}
+
+#head-title {
+  padding-left: 20px;
+  margin: auto;
+  width: 50%;
+  align-items: center;
+  height: 100%;
+}
+
+#head-title p {
+  font-family: 'Italianno';
+  font-style: normal;
+  text-align: center;
+  margin: 0;
+  padding-right: 10%;
+  width: 90%;
+}
+
+#head-title h1 {
+  font-family: 'Italianno';
+  font-style: normal;
+  text-align: center;
+  font-size: 50px;
+  margin: 0;
+  padding-right: 10%;
+  width: 90%;
+}
+
+#header-nav {
+  border-top: solid;
+  align-self: stretch;
+  align-items: center;
+  border-color: #F9F7F7;
+}
+
+#header-nav ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  margin-left: auto;
+}
+
+#header-nav ul li {
+  width: 24.9%;
+  text-align: center;
+  align-self: stretch;
+  font-family: 'Italianno';
+  font-size: 30px;
+}
+
+#header-nav ul li img {
+  width: 25%;
+  border-radius: 25%;
+}
+
+#header-nav ul li p {
+  margin: 0
+}
+
+#header-nav a {
+  color: #F9F7F7;
+  text-decoration: none;
+}
+
+#header-nav ul li:hover {
+  background-color: #3F72AF;
+}
+
+#header-branding {
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+#nav-wrapper {
+  background-color: #112D4E;
+  top: 0;
+  width: 100%;
+}

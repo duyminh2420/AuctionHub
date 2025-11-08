@@ -1,0 +1,139 @@
+.offer-form-wrapper {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-image: url(../images/consolebackground.jpg);
+    background-position: center;
+    background-repeat: repeat;
+    background-size: 40%;
+}
+  
+.offer-form-wrapper form input[type="submit"]{
+  border-radius: 10px;
+  border: none;
+  background-color: #112D4E;
+  color: white;
+  width: 100%;
+  height: 30px;
+}
+
+.offer-form-wrapper form {
+    background-color: white;
+    width: 30%;
+    padding: 20px;
+    text-align: center;
+}
+
+.offer-form-wrapper form h1 {
+    border-bottom: solid;
+}
+
+.offer-price-area {
+    background-color: #112D4E;
+    color: #F9F7F7;
+    border: solid;
+    border-color:#3F72AF;
+    border-radius: 60px;
+}
+
+.offer-price-area h4,
+.offer-price-area p {
+    margin: 0;
+}
+
+.bid-input{
+    padding:20px
+}
+
+.new-bid-img {
+  text-align: center;  
+}
+
+.new-bid-img img{
+    width: 40%;
+}
+
+.offer-wrapper {
+    width: 100%;
+    display: block;
+    padding: 30px;
+    background-image: url(../images/consolebackground.jpg);
+    background-position: center;
+    background-repeat: repeat;
+    background-size: 40%;
+}
+
+.offer-header {
+    width: 100%;
+    border: solid;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    background-color: white;
+}
+
+.offer-header h1{
+    margin-bottom: 0;
+    padding-top: 20px;
+    padding-left: 20px;
+}
+
+.offer-sub-header {
+    display: flex;
+    padding-left: 20px;
+}
+
+.offer-sub-header h4 {
+    padding-right: 35px;
+    margin-top: 0;
+}
+
+.offer-details {
+    display: flex;
+    background-color: white;
+}
+
+.offer-item1 {
+    width: 50%;
+    padding-right: 50px;
+    padding-left: 50px;
+    border: solid;
+    border-left: 0;
+    border-top: 0;
+}
+
+.offer-item2 {
+    width: 50%;
+    padding-right: 50px;
+    padding-left: 50px;
+    border: solid;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+}
+
+.offer-img {
+    width: 70%;
+    align-items: center;
+    display: flex;
+}
+  
+.offer-img img {
+    width: 60%;
+    min-width: 300px;
+    min-height: 400px;
+    max-width: 500px;
+    max-height: 500px;
+    object-fit: contain;
+}
+
+.offer-action {
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    padding: 20px;
+}
+.offer-action div {
+    width: 10%;
+}

@@ -1,0 +1,26 @@
+#word-content-footer {
+    padding-left: 20px;
+    width: 40%;
+    margin-right: auto;
+  }
+  
+  #image-content-footer {
+    padding-right: 20px;
+    width: 50%;
+    align-self: stretch;
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  #image-content-footer img {
+    width: 100%;
+    align-self:right;
+    color:white;
+    text-decoration-color:white;
+    text-align:right;
+    margin-right: 5px;
+  }
+
+  #image-content-footer a {
+    width: 86px;
+  }

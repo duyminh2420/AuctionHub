@@ -1,0 +1,31 @@
+<%- include('../partials/header.ejs')%> <%- include('../nav_bar/nav_bar.ejs')%>
+<div class="offer-form-wrapper">
+    <form action="/offers/create/<%=trade.id%>" method="POST">
+        <h1>Enter your bidding information</h1>
+        <div class="offered-item">
+            <h3><%= trade.title%></h3>
+            <div class="new-bid-img">
+                <img
+                    src="data:<%= trade.images[0].contentType%>;base64,<%= trade.images[0].imageBase64%>"
+                    alt="broken images" />
+            </div>
+            <h4>Listed by: <%= trade.trader.firstName + ' ' + trade.trader.lastName%></h4>
+            <h4>Status: <%=trade.status%></h4>
+            <h4>Description:</h4>
+            <p><%= trade.description%></p>
+            <div class="offer-price-area">
+                <h4>Current Price/Bid</h4>
+                <p>$ <%= trade.bestPrice%></p>
+            </div>
+        </div>
+        <div class="bid-input">
+            <label for="bidPrice">Enter your bidding price</label>
+            <input pattern="^\d*(\.\d{0,2})?$" id="bidPrice" name="bidPrice" required />
+        </div>
+        <div id="submit-btn">
+            <input type="submit" value="Submit offer" />
+        </div>
+    </form>
+</div>
+
+<%- include('../partials/footer.ejs')%>
